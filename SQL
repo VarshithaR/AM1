@@ -1,0 +1,16 @@
+create table User_masters(userid varchar2(6) primary key,username varchar2(15),userpassword varchar2(50),usertype varchar2(10));
+create table Department(dept_id int primary key,dept_name varchar2(50));
+create table Employee(empno number(6) primary key,ename varchar2(25),job varchar2(50),mgrnumber number(4),hiredate date,dept_id number references Department(dept_id));
+
+create table Asset_allocation(allocationid number primary key,assetid number references Asset(assetid),empno number references Employee(empno),allocation_date date,releasedate date);
+
+insert into USER_MASTERS values('155315','Varshitha','root','Admin');
+insert into USER_MASTERS values('155250','Sushmitha','hoot','Manager');
+select * from user_masters;
+
+
+create table Asset(assetid number primary key,assetname varchar2(25),assetdesc varchar2(25),quantity number,status varchar2(15));
+insert into ASSET values(101,'Laptop','HP laptop',10,'Available');
+insert into ASSET values(102,'Desktop','HP Desktop',10,'Available');
+select * from ASSET;
+drop table Asset_allocation
